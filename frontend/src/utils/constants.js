@@ -1,4 +1,4 @@
-export const URL = "http://api.edu.artmeta.ru";
+export const URL = "https://api.edu.artmeta.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
