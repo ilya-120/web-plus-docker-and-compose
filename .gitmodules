@@ -1,0 +1,6 @@
+[submodule "frontend/kupipodariday-frontend"]
+    path = frontend/kupipodariday-frontend
+    url = ./frontend/kupipodariday-frontend
+[submodule "backend/kupipodariday-backend"]
+    path = backend/kupipodariday-backend
+    url = ./backend/kupipodariday-backend
