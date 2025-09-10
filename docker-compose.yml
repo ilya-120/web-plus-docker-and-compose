@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  frontend:
+    build:
+      context: ./frontend/kupipodariday-frontend
+      dockerfile: Dockerfile
+    container_name: kupipodariday-frontend
+    ports:
+      - "8081:80"
+    networks:
+      - frontend
+    restart: unless-stopped
+  backend:
+    build:
+      context: ./backend/kupipodariday-backend
+      dockerfile: Dockerfile
+    container_name: kupipodariday-backend
+    ports:
+      - "4000:3001"
+    env_file:
+      - .env
+    depends_on:
+     - postgres
+    networks:
+      - backend
+    restart: unless-stopped
+  postgres:
+    image: postgres:12-alpine
+    container_name: kupipodariday-postgres
+    env_file:
+      - .env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+networks:
+  frontend:
+  backend:
